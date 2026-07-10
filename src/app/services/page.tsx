@@ -1,20 +1,37 @@
-import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { Button } from "@/components/Button";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Icon, type IconName } from "@/components/Icons";
+import { JsonLd } from "@/components/JsonLd";
 import { services, faqs, site } from "@/lib/site";
+import {
+  getBaseUrl,
+  pageMetadata,
+  faqSchema,
+  breadcrumbSchema,
+} from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Services",
   description:
     "Overnight newborn care, postpartum doula support and gentle sleep & feeding guidance — boutique care for the fourth trimester.",
-};
+  path: "/services",
+});
 
 export default function ServicesPage() {
+  const baseUrl = getBaseUrl();
   return (
     <>
+      <JsonLd
+        data={[
+          faqSchema(),
+          breadcrumbSchema(baseUrl, [
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+          ]),
+        ]}
+      />
       <PageHeader
         eyebrow="Our services"
         title="Care for the fourth trimester"

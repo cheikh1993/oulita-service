@@ -1,9 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Fraunces, Nunito } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { JsonLd } from "@/components/JsonLd";
 import { site } from "@/lib/site";
+import { getBaseUrl, localBusinessSchema, websiteSchema } from "@/lib/seo";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -20,33 +22,70 @@ const nunito = Nunito({
   display: "swap",
 });
 
+const baseUrl = getBaseUrl();
+
 export const metadata: Metadata = {
-  metadataBase: new URL(`https://${site.domain}`),
+  metadataBase: new URL(baseUrl),
   title: {
-    default: `${site.name} — ${site.tagline}`,
+    default: `${site.name} — ${site.tagline} in ${site.city}`,
     template: `%s · ${site.name}`,
   },
   description: site.heroSubtitle,
+  applicationName: site.name,
+  authors: [{ name: site.legalName }],
+  creator: site.legalName,
+  publisher: site.legalName,
+  category: "Newborn & postpartum care",
   keywords: [
     "newborn care",
     "postpartum doula",
     "night nurse",
+    "night nanny",
     "newborn care specialist",
-    "sleep support",
-    site.city,
+    "baby sleep support",
+    "postpartum care",
+    "fourth trimester support",
+    `newborn care ${site.city}`,
+    `postpartum doula ${site.city}`,
   ],
+  alternates: { canonical: "/" },
   openGraph: {
     title: `${site.name} — ${site.tagline}`,
     description: site.heroSubtitle,
+    url: "/",
+    siteName: site.name,
     type: "website",
     locale: "en_US",
-    siteName: site.name,
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} — ${site.tagline}`,
     description: site.heroSubtitle,
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  formatDetection: { telephone: true, email: true, address: true },
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? {
+        verification: {
+          google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+        },
+      }
+    : {}),
+};
+
+export const viewport: Viewport = {
+  themeColor: "#617A66",
+  colorScheme: "light",
 };
 
 export default function RootLayout({
@@ -57,6 +96,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fraunces.variable} ${nunito.variable}`}>
       <body className="page-backdrop min-h-screen">
+        <JsonLd data={[localBusinessSchema(baseUrl), websiteSchema(baseUrl)]} />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-sage focus:px-5 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-white"

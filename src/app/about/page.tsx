@@ -1,15 +1,17 @@
-import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { Button } from "@/components/Button";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Icon, type IconName } from "@/components/Icons";
+import { JsonLd } from "@/components/JsonLd";
 import { values, site } from "@/lib/site";
+import { getBaseUrl, pageMetadata, breadcrumbSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "About",
   description: `Meet ${site.name}, a boutique newborn and postpartum care studio founded by ${site.founder} in ${site.city}.`,
-};
+  path: "/about",
+});
 
 const stats = [
   { value: "1-to-1", label: "Personal, direct care" },
@@ -18,8 +20,15 @@ const stats = [
 ];
 
 export default function AboutPage() {
+  const baseUrl = getBaseUrl();
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema(baseUrl, [
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ])}
+      />
       <PageHeader
         eyebrow="About us"
         title="A calmer, kinder fourth trimester"
