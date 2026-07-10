@@ -5,20 +5,21 @@ import { nav, services, site } from "@/lib/site";
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t border-line bg-sage-tint/60">
+    <footer className="mt-24 border-t border-line bg-plum-tint/60">
       <div className="container py-16">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2.5">
-              <LogoMark className="h-9 w-9 text-sage" />
+              <LogoMark className="h-9 w-9 text-plum" />
               <span className="font-display text-xl font-semibold text-ink">
                 {site.name}
               </span>
             </div>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-soft">
-              A boutique newborn &amp; postpartum care studio in {site.city},
-              supporting new families through the first tender weeks.
+              Luxury overnight postpartum &amp; newborn care serving{" "}
+              {site.serviceArea} — so families can rest, recover and feel
+              supported.
             </p>
             <div className="mt-5 flex gap-2">
               <a
@@ -26,7 +27,7 @@ export function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line bg-surface text-ink-soft transition-colors hover:border-sage hover:text-sage-deep"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line bg-surface text-ink-soft transition-colors hover:border-plum hover:text-plum-deep"
               >
                 <Icon name="instagram" className="h-5 w-5" />
               </a>
@@ -35,7 +36,7 @@ export function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line bg-surface text-ink-soft transition-colors hover:border-sage hover:text-sage-deep"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line bg-surface text-ink-soft transition-colors hover:border-plum hover:text-plum-deep"
               >
                 <Icon name="facebook" className="h-5 w-5" />
               </a>
@@ -52,7 +53,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-ink-soft transition-colors hover:text-sage-deep"
+                    className="text-ink-soft transition-colors hover:text-plum-deep"
                   >
                     {item.label}
                   </Link>
@@ -71,7 +72,7 @@ export function Footer() {
                 <li key={s.slug}>
                   <Link
                     href={`/services#${s.slug}`}
-                    className="text-ink-soft transition-colors hover:text-sage-deep"
+                    className="text-ink-soft transition-colors hover:text-plum-deep"
                   >
                     {s.title}
                   </Link>
@@ -89,23 +90,25 @@ export function Footer() {
               <li>
                 <a
                   href={`mailto:${site.email}`}
-                  className="inline-flex items-center gap-2.5 text-ink-soft transition-colors hover:text-sage-deep"
+                  className="inline-flex items-center gap-2.5 text-ink-soft transition-colors hover:text-plum-deep"
                 >
-                  <Icon name="mail" className="h-4 w-4 text-sage" />
+                  <Icon name="mail" className="h-4 w-4 text-plum" />
                   {site.email}
                 </a>
               </li>
               <li>
                 <a
-                  href={site.phoneHref}
-                  className="inline-flex items-center gap-2.5 text-ink-soft transition-colors hover:text-sage-deep"
+                  href={site.social.instagram}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2.5 text-ink-soft transition-colors hover:text-plum-deep"
                 >
-                  <Icon name="phone" className="h-4 w-4 text-sage" />
-                  {site.phone}
+                  <Icon name="instagram" className="h-4 w-4 text-plum" />
+                  DM us to book
                 </a>
               </li>
               <li className="inline-flex items-start gap-2.5 text-ink-soft">
-                <Icon name="map-pin" className="mt-0.5 h-4 w-4 shrink-0 text-sage" />
+                <Icon name="map-pin" className="mt-0.5 h-4 w-4 shrink-0 text-plum" />
                 {site.serviceArea}
               </li>
             </ul>
@@ -123,7 +126,7 @@ export function Footer() {
             © {new Date().getFullYear()} {site.legalName}. All rights reserved.
           </p>
           <p>
-            Made with care in {site.city}. · Est. {site.establishedYear}
+            Serving {site.region} · Est. {site.establishedYear}
           </p>
         </div>
       </div>

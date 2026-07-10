@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: site.heroSubtitle,
     start_url: "/",
     display: "standalone",
-    background_color: "#FBF8F4",
-    theme_color: "#617A66",
+    background_color: "#FBF6F4",
+    theme_color: "#4A2650",
     icons: [
       {
         src: "/icon.svg",

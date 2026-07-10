@@ -51,8 +51,8 @@ export function Header() {
                 href={item.href}
                 className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
                   active
-                    ? "bg-sage-soft text-sage-deep"
-                    : "text-ink-soft hover:bg-sage-tint hover:text-sage-deep"
+                    ? "bg-plum-soft text-plum-deep"
+                    : "text-ink-soft hover:bg-plum-tint hover:text-plum-deep"
                 }`}
               >
                 {item.label}
@@ -70,7 +70,7 @@ export function Header() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full text-ink transition-colors hover:bg-sage-tint md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full text-ink transition-colors hover:bg-plum-tint md:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
         >
@@ -94,8 +94,8 @@ export function Header() {
                   onClick={() => setOpen(false)}
                   className={`rounded-2xl px-4 py-3 text-base font-semibold transition-colors ${
                     active
-                      ? "bg-sage-soft text-sage-deep"
-                      : "text-ink hover:bg-sage-tint"
+                      ? "bg-plum-soft text-plum-deep"
+                      : "text-ink hover:bg-plum-tint"
                   }`}
                 >
                   {item.label}

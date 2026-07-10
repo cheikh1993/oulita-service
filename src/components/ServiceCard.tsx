@@ -6,9 +6,9 @@ export function ServiceCard({ service }: { service: Service }) {
   return (
     <Link
       href={`/services#${service.slug}`}
-      className="group surface-card flex h-full flex-col p-7 transition-all duration-300 hover:-translate-y-1 hover:border-sage/40 hover:shadow-lift"
+      className="group surface-card flex h-full flex-col p-7 transition-all duration-300 hover:-translate-y-1 hover:border-plum/40 hover:shadow-lift"
     >
-      <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-sage-soft text-sage-deep transition-colors group-hover:bg-sage group-hover:text-white">
+      <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-plum-soft text-plum-deep transition-colors group-hover:bg-plum group-hover:text-white">
         <Icon name={service.icon as IconName} className="h-7 w-7" />
       </span>
 
@@ -19,7 +19,7 @@ export function ServiceCard({ service }: { service: Service }) {
         {service.summary}
       </p>
 
-      <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-sage-deep">
+      <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-plum-deep">
         Learn more
         <Icon
           name="arrow-right"

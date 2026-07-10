@@ -52,8 +52,8 @@ export async function POST(request: Request) {
   //   import { Resend } from "resend";
   //   const resend = new Resend(process.env.RESEND_API_KEY);
   //   await resend.emails.send({
-  //     from: "Little Nest <hello@littlenest.care>",
-  //     to: "hello@littlenest.care",
+  //     from: "Watch The Baby <onboarding@resend.dev>",
+  //     to: "watchthebaby42@gmail.com",
   //     subject: `New enquiry from ${name}`,
   //     text: `${message}\n\n${email} · ${body.phone ?? ""}`,
   //   });

@@ -4,6 +4,7 @@ import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Icon, type IconName } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
+import { PhotoSlot } from "@/components/PhotoSlot";
 import { values, site } from "@/lib/site";
 import { getBaseUrl, pageMetadata, breadcrumbSchema } from "@/lib/seo";
 
@@ -16,7 +17,7 @@ export const metadata = pageMetadata({
 const stats = [
   { value: "1-to-1", label: "Personal, direct care" },
   { value: "100%", label: "Vetted & certified caregivers" },
-  { value: `Est. ${site.establishedYear}`, label: `Proudly new in ${site.city}` },
+  { value: `Est. ${site.establishedYear}`, label: `Serving ${site.region}` },
 ];
 
 export default function AboutPage() {
@@ -40,23 +41,35 @@ export default function AboutPage() {
         <div className="grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
           <Reveal>
             <div className="lg:sticky lg:top-28">
-              <div className="relative overflow-hidden rounded-4xl bg-gradient-to-br from-sage-soft via-sage-tint to-blush-soft p-8">
-                <div className="flex min-h-[300px] items-center justify-center">
-                  <div className="relative">
-                    <div className="flex h-40 w-40 items-center justify-center rounded-full border border-white/70 bg-white/60 shadow-soft backdrop-blur">
-                      <span className="font-display text-5xl font-semibold text-sage-deep">
-                        {site.founder.charAt(0)}
-                      </span>
-                    </div>
-                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-line bg-surface px-4 py-1.5 text-sm font-semibold text-ink shadow-soft">
-                      {site.founder}, Founder
+              {site.images.founder ? (
+                <PhotoSlot
+                  src={site.images.founder}
+                  alt={`${site.founder}, founder of ${site.name}`}
+                  className="aspect-[4/5] w-full rounded-4xl shadow-soft"
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                />
+              ) : (
+                <>
+                  <div className="relative overflow-hidden rounded-4xl bg-gradient-to-br from-plum-soft via-plum-tint to-rose-soft p-8">
+                    <div className="flex min-h-[300px] items-center justify-center">
+                      <div className="relative">
+                        <div className="flex h-40 w-40 items-center justify-center rounded-full border border-white/70 bg-white/60 shadow-soft backdrop-blur">
+                          <span className="font-display text-5xl font-semibold text-plum-deep">
+                            {site.founder.charAt(0)}
+                          </span>
+                        </div>
+                        <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-line bg-surface px-4 py-1.5 text-sm font-semibold text-ink shadow-soft">
+                          {site.founder}, Founder
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <p className="mt-4 text-center text-sm text-ink-muted">
-                Replace this with a warm photo of the founder.
-              </p>
+                  <p className="mt-4 text-center text-sm text-ink-muted">
+                    A warm photo of {site.founder} will live here — see
+                    public/images/README.md.
+                  </p>
+                </>
+              )}
             </div>
           </Reveal>
 
@@ -88,7 +101,7 @@ export default function AboutPage() {
                     key={s.label}
                     className="rounded-3xl border border-line bg-surface p-6 text-center shadow-soft"
                   >
-                    <div className="font-display text-2xl font-semibold text-sage-deep">
+                    <div className="font-display text-2xl font-semibold text-plum-deep">
                       {s.value}
                     </div>
                     <div className="mt-1.5 text-sm leading-snug text-ink-soft">
@@ -116,7 +129,7 @@ export default function AboutPage() {
           {values.map((v, i) => (
             <Reveal key={v.title} delay={i * 80}>
               <div className="surface-card h-full p-7">
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blush-soft text-blush">
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-soft text-rose">
                   <Icon name={v.icon as IconName} className="h-6 w-6" />
                 </span>
                 <h3 className="mt-5 font-display text-lg font-semibold text-ink">

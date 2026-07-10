@@ -16,25 +16,35 @@ const config: Config = {
     },
     extend: {
       colors: {
-        cream: "#FBF8F4",
+        // Warm, faintly pink ivory — the page background
+        cream: "#FBF6F4",
         surface: "#FFFFFF",
         ink: {
-          DEFAULT: "#33302B",
-          soft: "#5B564E",
-          muted: "#8A847A",
+          DEFAULT: "#372339",
+          soft: "#5D4A60",
+          muted: "#8F7E92",
         },
-        sage: {
-          DEFAULT: "#617A66",
-          deep: "#4C6353",
-          soft: "#E7EEE8",
-          tint: "#F1F5F1",
+        // Deep plum — the brand's signature purple
+        plum: {
+          DEFAULT: "#4A2650",
+          deep: "#381C3D",
+          soft: "#EDE3F0",
+          tint: "#F7F2F8",
         },
-        blush: {
-          DEFAULT: "#C98B7A",
-          soft: "#F6E7E2",
-          tint: "#FBF1ED",
+        // Dusty rose / berry — the secondary brand colour
+        rose: {
+          DEFAULT: "#B05E6D",
+          deep: "#9A4C5B",
+          soft: "#F6E0E4",
+          tint: "#FBF1F3",
         },
-        line: "#ECE5DB",
+        // Champagne gold — the logo's accent
+        gold: {
+          DEFAULT: "#C79E66",
+          deep: "#A67F4B",
+          soft: "#F5EBDB",
+        },
+        line: "#EFE2E7",
       },
       fontFamily: {
         display: ["var(--font-fraunces)", "Georgia", "serif"],
@@ -44,8 +54,8 @@ const config: Config = {
         "4xl": "2rem",
       },
       boxShadow: {
-        soft: "0 1px 2px rgba(51, 48, 43, 0.04), 0 12px 32px -12px rgba(51, 48, 43, 0.12)",
-        lift: "0 2px 4px rgba(51, 48, 43, 0.05), 0 24px 48px -20px rgba(51, 48, 43, 0.22)",
+        soft: "0 1px 2px rgba(55, 35, 61, 0.05), 0 12px 32px -12px rgba(55, 35, 61, 0.14)",
+        lift: "0 2px 4px rgba(55, 35, 61, 0.06), 0 24px 48px -20px rgba(55, 35, 61, 0.26)",
       },
       keyframes: {
         "fade-up": {

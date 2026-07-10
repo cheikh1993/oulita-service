@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/Button";
 import { HeroArt } from "@/components/HeroArt";
+import { PhotoSlot } from "@/components/PhotoSlot";
 import { ServiceCard } from "@/components/ServiceCard";
 import { SectionHeading, Eyebrow } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
@@ -15,7 +16,7 @@ export default function HomePage() {
         <div className="container grid items-center gap-12 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:py-24">
           <div>
             <div className="animate-fade-up">
-              <Eyebrow>Boutique newborn care · New in {site.city}</Eyebrow>
+              <Eyebrow>Luxury newborn care · {site.region}</Eyebrow>
             </div>
             <h1
               className="animate-fade-up mt-6 font-display text-[2.6rem] font-semibold leading-[1.05] tracking-tight text-ink sm:text-6xl"
@@ -52,7 +53,7 @@ export default function HomePage() {
                     key={item}
                     className="inline-flex items-center gap-2 text-sm font-semibold text-ink-soft"
                   >
-                    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-sage-soft text-sage-deep">
+                    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-plum-soft text-plum-deep">
                       <Icon name="check" className="h-3.5 w-3.5" />
                     </span>
                     {item}
@@ -63,14 +64,23 @@ export default function HomePage() {
           </div>
 
           <div className="relative animate-fade-up" style={{ animationDelay: "200ms" }}>
-            <HeroArt className="h-auto w-full drop-shadow-[0_30px_60px_rgba(51,48,43,0.14)]" />
+            {site.images.hero ? (
+              <PhotoSlot
+                src={site.images.hero}
+                alt="A caregiver gently soothing a sleeping newborn"
+                priority
+                className="aspect-[13/14] w-full rounded-4xl shadow-lift"
+              />
+            ) : (
+              <HeroArt className="h-auto w-full drop-shadow-[0_30px_60px_rgba(55,35,61,0.16)]" />
+            )}
             {/* floating testimonial badge */}
             <div className="absolute -bottom-4 -left-2 flex items-center gap-3 rounded-2xl border border-line bg-surface/95 px-4 py-3 shadow-lift backdrop-blur sm:-left-6 md:animate-float">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-blush-soft text-blush">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-plum-soft text-plum">
                 <Icon name="moon" className="h-5 w-5" />
               </span>
               <div className="pr-1">
-                <div className="flex text-blush">
+                <div className="flex text-gold">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Icon key={i} name="star" className="h-3.5 w-3.5 fill-current" />
                   ))}
@@ -89,7 +99,7 @@ export default function HomePage() {
         <Reveal className="surface-card grid gap-6 p-8 sm:grid-cols-3 sm:gap-8 sm:p-10">
           {credentials.map((c) => (
             <div key={c.title} className="flex items-start gap-4">
-              <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-sage-soft text-sage-deep">
+              <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-plum-soft text-plum-deep">
                 <Icon name={c.icon as IconName} className="h-6 w-6" />
               </span>
               <div>
@@ -126,20 +136,28 @@ export default function HomePage() {
       {/* ── Founder / About teaser ───────────────────────────── */}
       <section className="container py-8">
         <div className="surface-card overflow-hidden lg:grid lg:grid-cols-2">
-          <div className="relative min-h-[320px] bg-gradient-to-br from-sage-soft via-sage-tint to-blush-soft p-8">
-            {/* portrait placeholder — drop a real photo of the founder here */}
-            <div className="flex h-full items-center justify-center">
-              <div className="relative">
-                <div className="flex h-44 w-44 items-center justify-center rounded-full border border-white/70 bg-white/60 shadow-soft backdrop-blur">
-                  <span className="font-display text-6xl font-semibold text-sage-deep">
-                    {site.founder.charAt(0)}
-                  </span>
-                </div>
-                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-line bg-surface px-4 py-1.5 text-sm font-semibold text-ink shadow-soft">
-                  {site.founder}, Founder
+          <div className="relative min-h-[320px]">
+            {site.images.founder ? (
+              <PhotoSlot
+                src={site.images.founder}
+                alt={`${site.founder}, founder of ${site.name}`}
+                className="h-full min-h-[320px]"
+              />
+            ) : (
+              /* portrait placeholder — set site.images.founder to swap in a photo */
+              <div className="flex h-full min-h-[320px] items-center justify-center bg-gradient-to-br from-plum-soft via-plum-tint to-rose-soft p-8">
+                <div className="relative">
+                  <div className="flex h-44 w-44 items-center justify-center rounded-full border border-white/70 bg-white/60 shadow-soft backdrop-blur">
+                    <span className="font-display text-6xl font-semibold text-plum-deep">
+                      {site.founder.charAt(0)}
+                    </span>
+                  </div>
+                  <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-line bg-surface px-4 py-1.5 text-sm font-semibold text-ink shadow-soft">
+                    {site.founder}, Founder
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
 
           <div className="p-8 sm:p-12">
@@ -152,9 +170,9 @@ export default function HomePage() {
             </p>
             <p className="mt-4 leading-relaxed text-ink-soft">
               {site.name} was founded by {site.founder} to bring calm, reliable
-              newborn support to families in {site.city} — the kind of steady,
-              knowledgeable presence every new parent deserves in the fourth
-              trimester.
+              newborn support to families across {site.serviceArea} — the kind
+              of steady, knowledgeable presence every new parent deserves in
+              the fourth trimester.
             </p>
             <div className="mt-8">
               <Button href="/about" variant="secondary" withArrow>
@@ -184,7 +202,7 @@ export default function HomePage() {
           {steps.map((step, i) => (
             <Reveal key={step.number} delay={i * 100}>
               <div className="relative flex flex-col items-center text-center">
-                <span className="relative z-10 inline-flex h-16 w-16 items-center justify-center rounded-full border border-line bg-surface font-display text-xl font-semibold text-sage-deep shadow-soft">
+                <span className="relative z-10 inline-flex h-16 w-16 items-center justify-center rounded-full border border-line bg-surface font-display text-xl font-semibold text-plum-deep shadow-soft">
                   {step.number}
                 </span>
                 <h3 className="mt-6 font-display text-xl font-semibold text-ink">
@@ -211,7 +229,7 @@ export default function HomePage() {
           {testimonials.map((t, i) => (
             <Reveal key={t.name} delay={i * 90}>
               <figure className="surface-card flex h-full flex-col p-7">
-                <Icon name="quote" className="h-8 w-8 text-blush" />
+                <Icon name="quote" className="h-8 w-8 text-rose" />
                 <blockquote className="mt-4 flex-1 font-display text-lg italic leading-relaxed text-ink">
                   “{t.quote}”
                 </blockquote>
@@ -225,11 +243,39 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Referral programme ───────────────────────────────── */}
+      <section className="container pt-20 sm:pt-24">
+        <Reveal className="surface-card relative overflow-hidden p-8 sm:p-10">
+          <div
+            className="pointer-events-none absolute -right-12 -top-12 h-44 w-44 rounded-full bg-rose-soft/70"
+            aria-hidden="true"
+          />
+          <div className="relative flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-start gap-5">
+              <span className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-rose-soft text-rose">
+                <Icon name="gift" className="h-7 w-7" />
+              </span>
+              <div>
+                <h2 className="font-display text-2xl font-semibold text-ink">
+                  {site.referral.eyebrow}
+                </h2>
+                <p className="mt-2 max-w-xl leading-relaxed text-ink-soft">
+                  {site.referral.text}
+                </p>
+              </div>
+            </div>
+            <Button href="/contact" variant="secondary" withArrow>
+              Refer a family
+            </Button>
+          </div>
+        </Reveal>
+      </section>
+
       {/* ── CTA band ─────────────────────────────────────────── */}
       <section className="container py-20 sm:py-28">
-        <Reveal className="relative overflow-hidden rounded-4xl bg-sage px-8 py-14 text-center shadow-lift sm:px-16 sm:py-20">
+        <Reveal className="relative overflow-hidden rounded-4xl bg-plum px-8 py-14 text-center shadow-lift sm:px-16 sm:py-20">
           <div
-            className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-sage-deep/40"
+            className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-plum-deep/40"
             aria-hidden="true"
           />
           <div
@@ -240,14 +286,14 @@ export default function HomePage() {
             <h2 className="mx-auto max-w-2xl font-display text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl">
               Ready to rest easy? Let&apos;s talk.
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-sage-soft">
+            <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-plum-soft">
               Book a free, no-pressure consultation and we&apos;ll help you plan
               the support that fits your family.
             </p>
             <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/contact"
-                className="group/btn inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-semibold tracking-tight text-sage-deep shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lift"
+                className="group/btn inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-semibold tracking-tight text-plum-deep shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lift"
               >
                 Book a free consultation
                 <Icon
@@ -256,11 +302,11 @@ export default function HomePage() {
                 />
               </Link>
               <a
-                href={site.phoneHref}
+                href={`mailto:${site.email}`}
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-white/10"
               >
-                <Icon name="phone" className="h-4 w-4" />
-                {site.phone}
+                <Icon name="mail" className="h-4 w-4" />
+                {site.email}
               </a>
             </div>
           </div>

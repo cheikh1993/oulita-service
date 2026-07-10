@@ -7,7 +7,7 @@ import { services } from "@/lib/site";
 type Status = "idle" | "submitting" | "success" | "error";
 
 const fieldClass =
-  "w-full rounded-2xl border border-line bg-cream/60 px-4 py-3 text-ink placeholder:text-ink-muted transition-colors focus:border-sage focus:bg-surface focus:outline-none focus:ring-2 focus:ring-sage/30";
+  "w-full rounded-2xl border border-line bg-cream/60 px-4 py-3 text-ink placeholder:text-ink-muted transition-colors focus:border-plum focus:bg-surface focus:outline-none focus:ring-2 focus:ring-plum/30";
 const labelClass = "mb-1.5 block text-sm font-semibold text-ink";
 
 export function ContactForm() {
@@ -41,8 +41,8 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="flex flex-col items-center justify-center rounded-4xl border border-sage/30 bg-sage-tint/70 p-10 text-center">
-        <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-sage text-white">
+      <div className="flex flex-col items-center justify-center rounded-4xl border border-plum/30 bg-plum-tint/70 p-10 text-center">
+        <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-plum text-white">
           <Icon name="check" className="h-7 w-7" />
         </span>
         <h3 className="mt-5 font-display text-2xl font-semibold text-ink">
@@ -55,7 +55,7 @@ export function ContactForm() {
         <button
           type="button"
           onClick={() => setStatus("idle")}
-          className="mt-6 text-sm font-semibold text-sage-deep underline underline-offset-4 hover:text-sage"
+          className="mt-6 text-sm font-semibold text-plum-deep underline underline-offset-4 hover:text-plum"
         >
           Send another message
         </button>
@@ -68,7 +68,7 @@ export function ContactForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className={labelClass}>
-            Your name <span className="text-blush">*</span>
+            Your name <span className="text-rose">*</span>
           </label>
           <input
             id="name"
@@ -76,13 +76,13 @@ export function ContactForm() {
             type="text"
             required
             autoComplete="name"
-            placeholder="Aïssatou Diop"
+            placeholder="Jasmine Carter"
             className={fieldClass}
           />
         </div>
         <div>
           <label htmlFor="email" className={labelClass}>
-            Email <span className="text-blush">*</span>
+            Email <span className="text-rose">*</span>
           </label>
           <input
             id="email"
@@ -103,7 +103,7 @@ export function ContactForm() {
             name="phone"
             type="tel"
             autoComplete="tel"
-            placeholder="+221 …"
+            placeholder="+1 (301) …"
             className={fieldClass}
           />
         </div>
@@ -140,7 +140,7 @@ export function ContactForm() {
 
       <div className="mt-5">
         <label htmlFor="message" className={labelClass}>
-          How can we help? <span className="text-blush">*</span>
+          How can we help? <span className="text-rose">*</span>
         </label>
         <textarea
           id="message"
@@ -155,7 +155,7 @@ export function ContactForm() {
       {status === "error" && (
         <p
           role="alert"
-          className="mt-5 rounded-2xl border border-blush/40 bg-blush-tint px-4 py-3 text-sm text-ink"
+          className="mt-5 rounded-2xl border border-rose/40 bg-rose-tint px-4 py-3 text-sm text-ink"
         >
           {error}
         </p>
@@ -164,7 +164,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="group/btn mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-sage px-7 py-3.5 text-base font-semibold text-white shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:bg-sage-deep hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-cream disabled:pointer-events-none disabled:opacity-70 sm:w-auto"
+        className="group/btn mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-plum px-7 py-3.5 text-base font-semibold text-white shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:bg-plum-deep hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-plum focus-visible:ring-offset-2 focus-visible:ring-offset-cream disabled:pointer-events-none disabled:opacity-70 sm:w-auto"
       >
         {status === "submitting" ? (
           "Sending…"

@@ -7,7 +7,7 @@ import { getBaseUrl, pageMetadata, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Contact",
-  description: `Book a free newborn care consultation with ${site.name} in ${site.city}. We reply within one business day.`,
+  description: `Book a free newborn care consultation with ${site.name} — serving ${site.serviceArea}. We reply within one business day.`,
   path: "/contact",
 });
 
@@ -19,10 +19,10 @@ const details = [
     href: `mailto:${site.email}`,
   },
   {
-    icon: "phone" as const,
-    label: "Phone & WhatsApp",
-    value: site.phone,
-    href: site.phoneHref,
+    icon: "instagram" as const,
+    label: "Instagram",
+    value: "DM us to book",
+    href: site.social.instagram,
   },
   {
     icon: "map-pin" as const,
@@ -69,7 +69,7 @@ export default function ContactPage() {
               {details.map((d) => {
                 const inner = (
                   <div className="flex items-start gap-4">
-                    <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-sage-soft text-sage-deep">
+                    <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-plum-soft text-plum-deep">
                       <Icon name={d.icon} className="h-5 w-5" />
                     </span>
                     <div>
@@ -85,7 +85,7 @@ export default function ContactPage() {
                 return (
                   <li
                     key={d.label}
-                    className="surface-card p-5 transition-colors hover:border-sage/40"
+                    className="surface-card p-5 transition-colors hover:border-plum/40"
                   >
                     {d.href ? (
                       <a href={d.href} className="block">
@@ -105,7 +105,7 @@ export default function ContactPage() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line bg-surface text-ink-soft transition-colors hover:border-sage hover:text-sage-deep"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line bg-surface text-ink-soft transition-colors hover:border-plum hover:text-plum-deep"
               >
                 <Icon name="instagram" className="h-5 w-5" />
               </a>
@@ -114,7 +114,7 @@ export default function ContactPage() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line bg-surface text-ink-soft transition-colors hover:border-sage hover:text-sage-deep"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line bg-surface text-ink-soft transition-colors hover:border-plum hover:text-plum-deep"
               >
                 <Icon name="facebook" className="h-5 w-5" />
               </a>

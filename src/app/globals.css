@@ -22,8 +22,8 @@
   }
 
   ::selection {
-    background-color: theme("colors.sage.soft");
-    color: theme("colors.sage.deep");
+    background-color: theme("colors.plum.soft");
+    color: theme("colors.plum.deep");
   }
 
   h1,
@@ -45,12 +45,12 @@
     background-image:
       radial-gradient(
         60rem 40rem at 85% -10%,
-        rgba(97, 122, 102, 0.1),
+        rgba(74, 38, 80, 0.09),
         transparent 60%
       ),
       radial-gradient(
         50rem 40rem at -5% 5%,
-        rgba(201, 139, 122, 0.1),
+        rgba(176, 94, 109, 0.09),
         transparent 55%
       );
   }

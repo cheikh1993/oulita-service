@@ -27,7 +27,7 @@ const baseUrl = getBaseUrl();
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: `${site.name} — ${site.tagline} in ${site.city}`,
+    default: `${site.name} — ${site.tagline} · ${site.region}`,
     template: `%s · ${site.name}`,
   },
   description: site.heroSubtitle,
@@ -37,16 +37,18 @@ export const metadata: Metadata = {
   publisher: site.legalName,
   category: "Newborn & postpartum care",
   keywords: [
-    "newborn care",
-    "postpartum doula",
-    "night nurse",
-    "night nanny",
-    "newborn care specialist",
-    "baby sleep support",
+    "overnight newborn care",
     "postpartum care",
-    "fourth trimester support",
-    `newborn care ${site.city}`,
-    `postpartum doula ${site.city}`,
+    "newborn care specialist",
+    "night nanny",
+    "night nurse",
+    "postpartum massage",
+    "baby sleep guidance",
+    "feeding support",
+    "newborn care Maryland",
+    "newborn care Washington DC",
+    "postpartum care Virginia",
+    "night nanny DMV",
   ],
   alternates: { canonical: "/" },
   openGraph: {
@@ -84,7 +86,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#617A66",
+  themeColor: "#4A2650",
   colorScheme: "light",
 };
 
@@ -99,7 +101,7 @@ export default function RootLayout({
         <JsonLd data={[localBusinessSchema(baseUrl), websiteSchema(baseUrl)]} />
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-sage focus:px-5 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-white"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-plum focus:px-5 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-white"
         >
           Skip to content
         </a>

@@ -4,7 +4,7 @@ import { LogoMark } from "@/components/Logo";
 export default function NotFound() {
   return (
     <section className="container flex min-h-[60vh] flex-col items-center justify-center py-20 text-center">
-      <LogoMark className="h-14 w-14 text-sage" />
+      <LogoMark className="h-14 w-14 text-plum" />
       <p className="mt-6 font-display text-6xl font-semibold text-ink">404</p>
       <h1 className="mt-3 font-display text-2xl font-semibold text-ink">
         This page is having a little nap

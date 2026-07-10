@@ -2,8 +2,8 @@ import type { ReactNode } from "react";
 
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-sage-deep">
-      <span className="h-1.5 w-1.5 rounded-full bg-blush" />
+    <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-plum-deep">
+      <span className="h-1.5 w-1.5 rounded-full bg-rose" />
       {children}
     </span>
   );

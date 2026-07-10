@@ -1,38 +1,27 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
 
+/**
+ * Brand mark — a deep-plum roundel with a champagne-gold crescent
+ * cradling a little heart, echoing the Watch The Baby logo
+ * (mother, moon and baby in gold on plum).
+ */
 export function LogoMark({ className = "" }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 40 40"
-      className={className}
-      fill="none"
-      aria-hidden="true"
-    >
-      {/* nest */}
+    <svg viewBox="0 0 40 40" className={className} fill="none" aria-hidden="true">
+      {/* plum roundel */}
+      <circle cx="20" cy="20" r="19" fill="#4A2650" />
+      <circle cx="20" cy="20" r="17.4" stroke="#E4C695" strokeWidth="0.8" opacity="0.5" />
+      {/* gold crescent cradle */}
+      <circle cx="20" cy="19.5" r="10.5" fill="#E4C695" />
+      <circle cx="20" cy="16" r="9.6" fill="#4A2650" />
+      {/* heart — the baby, held in the cradle */}
       <path
-        d="M6 24c2.6 4 7.6 6.5 14 6.5S31.4 28 34 24"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
+        d="M20 21.5c-2.7-1.9-4.7-4-4.7-6.1 0-1.5 1.2-2.6 2.6-2.6.8 0 1.6.4 2.1 1 .5-.6 1.3-1 2.1-1 1.4 0 2.6 1.1 2.6 2.6 0 2.1-2 4.2-4.7 6.1z"
+        fill="#E4C695"
       />
-      <path
-        d="M9 20.5c2.2 3 6.2 5 11 5s8.8-2 11-5"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        opacity="0.55"
-      />
-      {/* egg / heart nestled inside */}
-      <path
-        d="M20 8c3.4 0 6 2.7 6 6.3 0 4-3.2 6.7-6 8.7-2.8-2-6-4.7-6-8.7C14 10.7 16.6 8 20 8z"
-        fill="currentColor"
-        opacity="0.16"
-      />
-      <path
-        d="M20 21.5c-2.4-1.8-4.7-3.9-4.7-6.7A2.7 2.7 0 0120 12.6a2.7 2.7 0 014.7 2.2c0 2.8-2.3 4.9-4.7 6.7z"
-        fill="currentColor"
-      />
+      {/* watchful star */}
+      <path d="M28.6 9.2l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z" fill="#E4C695" />
     </svg>
   );
 }
@@ -51,12 +40,12 @@ export function Logo({
       className={`group inline-flex items-center gap-2.5 ${className}`}
       aria-label={`${site.name} — home`}
     >
-      <LogoMark className="h-9 w-9 text-sage transition-colors group-hover:text-sage-deep" />
+      <LogoMark className="h-10 w-10" />
       <span className="flex flex-col leading-none">
-        <span className="font-display text-xl font-semibold tracking-tight text-ink">
+        <span className="font-display text-xl font-semibold italic tracking-tight text-plum transition-colors group-hover:text-plum-deep">
           {site.name}
         </span>
-        <span className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted">
+        <span className="mt-1 text-[9.5px] font-bold uppercase tracking-[0.2em] text-gold-deep">
           {site.tagline}
         </span>
       </span>

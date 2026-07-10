@@ -10,11 +10,11 @@ export const alt = `${site.name} — ${site.tagline}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-// Brand logo mark inlined as a data URI so it renders reliably in the card.
+// Brand mark inlined as a data URI so it renders reliably in the card.
 const logo =
   "data:image/svg+xml;utf8," +
   encodeURIComponent(
-    `<svg width="96" height="96" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="12" fill="#617A66"/><path d="M11 29c3.1 4.8 9.1 7.8 16.8 7.8" stroke="#FBF8F4" stroke-width="2.4" stroke-linecap="round" opacity="0.5"/><path d="M12 26c2.6 3.6 7.4 6 13 6" stroke="#FBF8F4" stroke-width="2.4" stroke-linecap="round"/><path d="M24 30c-2.9-2.2-5.6-4.7-5.6-8A3.2 3.2 0 0124 19.3a3.2 3.2 0 015.6 2.7c0 3.3-2.7 5.8-5.6 8z" fill="#FBF8F4"/></svg>`,
+    `<svg width="96" height="96" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="14" fill="#4A2650"/><circle cx="24" cy="23.5" r="12.6" fill="#E4C695"/><circle cx="24" cy="19.3" r="11.5" fill="#4A2650"/><path d="M24 25.8c-3.2-2.3-5.6-4.8-5.6-7.3 0-1.8 1.4-3.1 3.1-3.1 1 0 1.9.5 2.5 1.2.6-.7 1.5-1.2 2.5-1.2 1.7 0 3.1 1.3 3.1 3.1 0 2.5-2.4 5-5.6 7.3z" fill="#E4C695"/><path d="M34.3 11l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z" fill="#E4C695"/></svg>`,
   );
 
 export default function OpengraphImage() {
@@ -27,7 +27,7 @@ export default function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          backgroundColor: "#FBF8F4",
+          backgroundColor: "#FBF6F4",
           padding: 72,
           position: "relative",
           fontFamily: "sans-serif",
@@ -42,7 +42,7 @@ export default function OpengraphImage() {
             width: 460,
             height: 460,
             borderRadius: 9999,
-            backgroundColor: "#E7EEE8",
+            backgroundColor: "#EDE3F0",
           }}
         />
         <div
@@ -53,7 +53,7 @@ export default function OpengraphImage() {
             width: 420,
             height: 420,
             borderRadius: 9999,
-            backgroundColor: "#F6E7E2",
+            backgroundColor: "#F6E0E4",
           }}
         />
 
@@ -64,22 +64,23 @@ export default function OpengraphImage() {
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div
               style={{
-                fontSize: 40,
+                fontSize: 42,
                 fontWeight: 700,
-                color: "#33302B",
-                letterSpacing: 1,
+                fontStyle: "italic",
+                color: "#4A2650",
+                letterSpacing: 0.5,
               }}
             >
               {site.name}
             </div>
             <div
               style={{
-                fontSize: 20,
-                fontWeight: 600,
-                color: "#4C6353",
-                letterSpacing: 4,
+                fontSize: 19,
+                fontWeight: 700,
+                color: "#A67F4B",
+                letterSpacing: 5,
                 textTransform: "uppercase",
-                marginTop: 4,
+                marginTop: 6,
               }}
             >
               {site.tagline}
@@ -91,11 +92,11 @@ export default function OpengraphImage() {
         <div
           style={{
             display: "flex",
-            fontSize: 66,
+            fontSize: 72,
             fontWeight: 700,
-            color: "#33302B",
+            color: "#372339",
             lineHeight: 1.08,
-            maxWidth: 940,
+            maxWidth: 960,
           }}
         >
           {site.heroTitle}
@@ -112,7 +113,7 @@ export default function OpengraphImage() {
           <div
             style={{
               display: "flex",
-              backgroundColor: "#617A66",
+              backgroundColor: "#4A2650",
               color: "#FFFFFF",
               fontSize: 26,
               fontWeight: 700,
@@ -128,10 +129,10 @@ export default function OpengraphImage() {
               alignItems: "center",
               fontSize: 26,
               fontWeight: 600,
-              color: "#5B564E",
+              color: "#5D4A60",
             }}
           >
-            {`Boutique care · ${site.city}`}
+            {`Luxury care · ${site.region}`}
           </div>
         </div>
       </div>

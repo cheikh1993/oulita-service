@@ -5,40 +5,56 @@
  *  services, values, testimonials and FAQ. No need to touch the
  *  components to update copy.
  *
- *  ⚠️  Replace the placeholder brand, contact info and quotes below
- *      with the agency's real details.
+ *  ⚠️  Testimonials are placeholders — swap in real client quotes
+ *      as soon as you have them.
  * ────────────────────────────────────────────────────────────────
  */
 
 export const site = {
   // ── Brand ──────────────────────────────────────────────────────
-  name: "Little Nest",
-  legalName: "Little Nest Newborn Care",
-  tagline: "Newborn & Postpartum Care",
+  name: "Watch The Baby",
+  legalName: "Watch The Baby LLC",
+  tagline: "Postpartum & Newborn Care",
   founder: "Oulimata",
   establishedYear: 2026,
-  domain: "littlenest.care",
 
   // ── Contact ────────────────────────────────────────────────────
-  email: "hello@littlenest.care",
-  phone: "+221 77 000 00 00",
-  phoneHref: "tel:+22177000000",
-  whatsapp: "+221 77 000 00 00",
-  city: "Dakar",
-  serviceArea: "Dakar and surrounding areas",
-  hours: "Consultations Mon–Sat, 9am – 7pm · Overnight care available 7 days a week",
+  email: "watchthebaby42@gmail.com",
+  bookingNote: "DM or email to book",
+  region: "Maryland · DC · Virginia",
+  city: "the DMV", // used in sentences like “families in the DMV”
+  serviceArea: "Maryland, Washington DC & Northern Virginia",
+  hours: "Overnight care 7 nights a week · Consultations by appointment",
 
   social: {
-    instagram: "https://instagram.com/",
-    facebook: "https://facebook.com/",
+    instagram: "https://instagram.com/", // TODO: real Instagram profile URL
+    facebook: "https://facebook.com/", // TODO: real Facebook page URL
   },
 
   // ── One-liners used across the site ────────────────────────────
-  heroTitle: "Gentle, expert care for your growing family.",
+  heroTitle: "Rest, recover, and feel supported.",
   heroSubtitle:
-    "A boutique newborn care studio supporting new parents through the first tender weeks — with warmth, rest, and calm, trusted hands.",
+    "Watch The Baby provides luxury overnight postpartum and newborn care across Maryland, DC and Virginia — expert hands for your baby, real rest for you.",
   promise:
     "We're a small, hands-on team. When you work with us, you work directly with the people caring for your family — never a call centre.",
+  packagesNote:
+    "Ask about our comprehensive Maternity Care Packages — overnight care, feeding and sleep support, bundled at a gentler rate.",
+
+  // ── Referral programme ─────────────────────────────────────────
+  referral: {
+    eyebrow: "Give the gift of rest",
+    bonus: "$50",
+    text: "Refer a family and receive a $50 referral bonus when they book with us.",
+  },
+
+  // ── Photos ─────────────────────────────────────────────────────
+  // Drop real photos into public/images/ then set the paths here,
+  // e.g. hero: "/images/hero.jpg". While a value is null the site
+  // shows an elegant placeholder instead. See public/images/README.md.
+  images: {
+    hero: null as string | null, // e.g. "/images/hero.jpg" (≈ 1000×1080, caregiver with baby)
+    founder: null as string | null, // e.g. "/images/founder.jpg" (portrait, ≈ 800×1000)
+  },
 };
 
 // ── Trust badges (the reassurance strip) ─────────────────────────
@@ -77,48 +93,80 @@ export const services: Service[] = [
     icon: "moon",
     title: "Overnight Newborn Care",
     summary:
-      "Restful nights while a specialist tends to feeds, changes and settling — so you wake up rested.",
+      "Luxury overnight care — feeds, changes and settling handled while you finally sleep.",
     description:
-      "Our overnight specialists care for your baby through the night, handling feeds, diaper changes and soothing, then gently bringing baby to you for breastfeeding or offering a prepared bottle. You sleep; we watch over the nursery.",
+      "Our overnight specialists care for your baby through the night: feeds, diaper changes and gentle soothing, with baby brought to you for breastfeeding or offered a prepared bottle. You rest and recover; we watch the baby.",
     includes: [
-      "Overnight shifts, typically 9–11 hours",
-      "Feeding support — breast, bottle or combination",
-      "Diapering, soothing and safe-sleep routines",
+      "Overnight shifts, typically 8–12 hours",
+      "Feeds, diapering and safe-sleep routines",
       "A tidy nursery and a written night log each morning",
+      "Available 1 to 7 nights a week",
     ],
-    priceNote: "From a per-night rate · 1 to 7 nights a week",
+    priceNote: "Per-night rate · maternity packages available",
   },
   {
-    slug: "postpartum-doula-support",
-    icon: "hands",
-    title: "Postpartum Doula Support",
-    summary:
-      "Daytime support for you, not just the baby — recovery, feeding, meals and a steadying presence.",
-    description:
-      "A postpartum doula cares for the whole family in the fourth trimester: emotional support, help with feeding and recovery, light meal prep, and practical guidance so you can find your footing with confidence.",
-    includes: [
-      "Daytime visits shaped around your needs",
-      "Newborn feeding and recovery support",
-      "Light meal prep and nursery organisation",
-      "Evidence-based guidance, judgement-free",
-    ],
-    priceNote: "Daytime blocks · booked weekly or as needed",
-  },
-  {
-    slug: "sleep-and-feeding-guidance",
+    slug: "feeding-support",
     icon: "bottle",
-    title: "Sleep & Feeding Guidance",
+    title: "Feeding Support",
     summary:
-      "Gentle, age-appropriate plans for sleep and feeding, coached with you at your pace.",
+      "Confident feeding — breast, bottle or combination — with patient, judgement-free coaching.",
     description:
-      "A one-on-one consultation to understand your baby and your goals, followed by a gentle, realistic plan for sleep and feeding — with follow-up support so you're never left guessing.",
+      "Hands-on help with latch and positioning, paced bottle feeding, pumping routines and building a rhythm that works for your family. Whatever feeding path you choose, we support it fully.",
     includes: [
-      "In-depth consultation and assessment",
-      "A personalised, gentle sleep & feeding plan",
-      "Follow-up check-ins and adjustments",
-      "Simple guides you can keep and reuse",
+      "Breast, bottle and combination feeding",
+      "Latch, positioning and pumping guidance",
+      "Paced bottle feeding for partners and caregivers",
+      "Simple routines you can keep and reuse",
     ],
-    priceNote: "One-off consultation · follow-up packages available",
+    priceNote: "Woven into every visit · standalone sessions available",
+  },
+  {
+    slug: "sleep-guidance",
+    icon: "zzz",
+    title: "Sleep Guidance",
+    summary:
+      "Gentle, age-appropriate sleep shaping — coached with you, at your baby's pace.",
+    description:
+      "A one-on-one consultation to understand your baby and your goals, followed by a gentle, realistic sleep plan with follow-up check-ins — so better nights actually stick.",
+    includes: [
+      "In-depth sleep consultation and assessment",
+      "A personalised, gentle sleep plan",
+      "Safe-sleep set-up review of your nursery",
+      "Follow-up check-ins and adjustments",
+    ],
+    priceNote: "Consultation + follow-up packages",
+  },
+  {
+    slug: "postpartum-massage",
+    icon: "spa",
+    title: "Postpartum Massage",
+    summary:
+      "Restorative in-home massage to ease recovery, tension and tired new-parent shoulders.",
+    description:
+      "Gentle, postpartum-safe massage in the comfort of your home — supporting circulation, easing aches from feeding and carrying, and giving your body the care it's giving everyone else.",
+    includes: [
+      "In-home sessions around your baby's rhythm",
+      "Postpartum-safe, recovery-focused techniques",
+      "Relief for back, neck and feeding tension",
+      "Lovely as a gift for a new mother",
+    ],
+    priceNote: "Per session · add-on to any care package",
+  },
+  {
+    slug: "emotional-support",
+    icon: "chat-heart",
+    title: "Emotional Support for Parents",
+    summary:
+      "A steady, caring presence for you — because the fourth trimester is tender for parents too.",
+    description:
+      "Doula-style emotional care: a listening ear without judgement, reassurance grounded in experience, and gentle signposting to specialist resources when they'd help. You don't have to hold it all alone.",
+    includes: [
+      "Judgement-free listening and reassurance",
+      "Evidence-based guidance for the fourth trimester",
+      "Help finding specialist support when needed",
+      "Woven through every service we offer",
+    ],
+    priceNote: "Included in our care · dedicated visits available",
   },
 ];
 
@@ -165,25 +213,25 @@ export const values = [
   },
 ];
 
-// ── Testimonials (replace with real quotes) ──────────────────────
+// ── Testimonials (placeholders — replace with real quotes) ───────
 export const testimonials = [
   {
     quote:
-      "Those first two weeks would have broken us without our night specialist. We finally slept, and woke up feeling human again.",
-    name: "Aïssatou & Karim",
-    detail: "First-time parents · Dakar",
+      "Those first two weeks would have broken us without our overnight specialist. We finally slept, and woke up feeling human again.",
+    name: "Jasmine & Marcus",
+    detail: "First-time parents · Silver Spring, MD",
   },
   {
     quote:
       "Kind, calm and genuinely knowledgeable. She gave us confidence with feeding when we had none.",
-    name: "Fatou D.",
-    detail: "Mother of two",
+    name: "Amina T.",
+    detail: "Mother of two · Washington, DC",
   },
   {
     quote:
-      "It felt like having a wise, unflappable friend in the house. Worth every franc.",
-    name: "Marième & Paul",
-    detail: "Twins, 6 weeks",
+      "It felt like having a wise, unflappable friend in the house. Worth every penny.",
+    name: "Sarah & David",
+    detail: "Twins, 6 weeks · Arlington, VA",
   },
 ];
 
@@ -203,7 +251,11 @@ export const faqs = [
   },
   {
     q: "What areas do you cover?",
-    a: "We currently serve Dakar and the surrounding areas. If you're a little further out, get in touch and we'll see what's possible.",
+    a: "We serve families across Maryland, Washington DC and Northern Virginia. A little further out? Reach out and we'll see what's possible.",
+  },
+  {
+    q: "Do you offer packages or gift options?",
+    a: "Yes — our Maternity Care Packages bundle overnight care, feeding and sleep support at a gentler rate, and any service can be gifted to a new family. We also offer a $50 referral bonus when a family you refer books with us.",
   },
 ];
 
