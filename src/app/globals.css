@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream font-sans text-ink antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Anchor targets clear the sticky header */
+  :target {
+    scroll-margin-top: 6rem;
+  }
+
+  ::selection {
+    background-color: theme("colors.sage.soft");
+    color: theme("colors.sage.deep");
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  /* Soft, warm page backdrop with gentle colour blooms */
+  .page-backdrop {
+    background-color: theme("colors.cream");
+    background-image:
+      radial-gradient(
+        60rem 40rem at 85% -10%,
+        rgba(97, 122, 102, 0.1),
+        transparent 60%
+      ),
+      radial-gradient(
+        50rem 40rem at -5% 5%,
+        rgba(201, 139, 122, 0.1),
+        transparent 55%
+      );
+  }
+
+  .surface-card {
+    @apply rounded-4xl border border-line bg-surface shadow-soft;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
