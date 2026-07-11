@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Icon, type IconName } from "./Icons";
+import { PhotoSlot } from "./PhotoSlot";
 import type { Service } from "@/lib/site";
 
 export function ServiceCard({ service }: { service: Service }) {
@@ -8,7 +9,15 @@ export function ServiceCard({ service }: { service: Service }) {
       href={`/services#${service.slug}`}
       className="group surface-card flex h-full flex-col p-7 transition-all duration-300 hover:-translate-y-1 hover:border-plum/40 hover:shadow-lift"
     >
-      <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-plum-soft text-plum-deep transition-colors group-hover:bg-plum group-hover:text-white">
+      {service.image && (
+        <PhotoSlot
+          src={service.image}
+          alt={service.imageAlt ?? service.title}
+          className="mb-6 aspect-[3/2] w-full rounded-2xl"
+          sizes="(min-width: 768px) 33vw, 100vw"
+        />
+      )}
+      <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-plum-soft text-plum-deep transition-all duration-300 group-hover:-rotate-6 group-hover:scale-110 group-hover:bg-plum group-hover:text-white motion-reduce:transition-none">
         <Icon name={service.icon as IconName} className="h-7 w-7" />
       </span>
 

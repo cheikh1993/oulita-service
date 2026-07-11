@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LogoMark } from "./Logo";
+import { LogoImage } from "./Logo";
 import { Icon } from "./Icons";
 import { nav, services, site } from "@/lib/site";
 
@@ -10,12 +10,9 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2.5">
-              <LogoMark className="h-9 w-9 text-plum" />
-              <span className="font-display text-xl font-semibold text-ink">
-                {site.name}
-              </span>
-            </div>
+            <Link href="/" aria-label={`${site.name} — home`}>
+              <LogoImage className="h-24 w-auto" />
+            </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-soft">
               Luxury overnight postpartum &amp; newborn care serving{" "}
               {site.serviceArea} — so families can rest, recover and feel

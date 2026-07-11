@@ -34,7 +34,7 @@ export function PhotoSlot({
           fill
           sizes={sizes}
           priority={priority}
-          className="object-cover"
+          className="object-cover transition-transform duration-700 ease-out motion-reduce:transition-none group-hover:scale-[1.05]"
         />
       </div>
     );

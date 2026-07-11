@@ -15,6 +15,8 @@ export const site = {
   name: "Watch The Baby",
   legalName: "Watch The Baby LLC",
   tagline: "Postpartum & Newborn Care",
+  motto:
+    "Every baby deserves gentle care. Every parent deserves compassionate support.",
   founder: "Oulimata",
   establishedYear: 2026,
 
@@ -29,6 +31,7 @@ export const site = {
   social: {
     instagram: "https://instagram.com/", // TODO: real Instagram profile URL
     facebook: "https://facebook.com/", // TODO: real Facebook page URL
+    tiktok: "https://tiktok.com/", // TODO: real TikTok profile URL
   },
 
   // ── One-liners used across the site ────────────────────────────
@@ -52,8 +55,11 @@ export const site = {
   // e.g. hero: "/images/hero.jpg". While a value is null the site
   // shows an elegant placeholder instead. See public/images/README.md.
   images: {
-    hero: null as string | null, // e.g. "/images/hero.jpg" (≈ 1000×1080, caregiver with baby)
-    founder: null as string | null, // e.g. "/images/founder.jpg" (portrait, ≈ 800×1000)
+    // hero.jpg and several service photos are free-license stock photos from
+    // Pexels (commercial use allowed, no attribution required) — see
+    // public/images/README.md for the full source list.
+    hero: "/images/hero.jpg" as string | null, // mother holding her sleeping newborn
+    founder: "/images/founder.jpg" as string | null, // portrait of Oulimata (880×1100)
   },
 };
 
@@ -85,6 +91,9 @@ export type Service = {
   description: string;
   includes: string[];
   priceNote: string;
+  /** Photo shown on the service card and detail page (file under public/). */
+  image?: string;
+  imageAlt?: string;
 };
 
 export const services: Service[] = [
@@ -103,6 +112,62 @@ export const services: Service[] = [
       "Available 1 to 7 nights a week",
     ],
     priceNote: "Per-night rate · maternity packages available",
+    image: "/images/overnight-care.jpg",
+    imageAlt: "A newborn sleeping soundly under a soft knitted blanket",
+  },
+  {
+    slug: "daytime-newborn-care",
+    icon: "sun",
+    title: "Daytime Newborn Care",
+    summary:
+      "Attentive daytime care so you can nap, work or simply take a breath.",
+    description:
+      "An experienced caregiver by your side during the day — feeds, naps, tummy time and gentle play, plus light baby-related tidying — while you rest, run errands or ease back into work knowing your baby is in expert hands.",
+    includes: [
+      "Flexible daytime shifts, typically 4–8 hours",
+      "Feeds, naps, soothing and tummy time",
+      "Bottle prep, pump-part washing and nursery tidy-ups",
+      "A clear day log at every handover",
+    ],
+    priceNote: "Hourly rate · regular weekly schedules available",
+    image: "/images/daytime-care.jpg",
+    imageAlt: "A caregiver gently dressing a bright-eyed baby during the day",
+  },
+  {
+    slug: "postpartum-doula-support",
+    icon: "hands",
+    title: "Postpartum Doula Support",
+    summary:
+      "Nurturing, judgement-free support for your whole household as you recover.",
+    description:
+      "A postpartum doula walks beside you through the fourth trimester: caring for your baby while you shower or sleep, answering your questions with evidence-based guidance, and lightening the load at home as you find your footing.",
+    includes: [
+      "In-home visits shaped around your recovery",
+      "Newborn care while you rest and recharge",
+      "Evidence-based answers, never judgement",
+      "Light meal prep and household support",
+    ],
+    priceNote: "Per visit · bundled packages available",
+    image: "/images/doula-support.jpg",
+    imageAlt: "A doula sitting with a mother and her newborn, offering support",
+  },
+  {
+    slug: "newborn-sleep-conditioning",
+    icon: "zzz",
+    title: "Newborn Sleep Conditioning",
+    summary:
+      "Gentle sleep shaping from the earliest weeks — healthy habits, at your baby's pace.",
+    description:
+      "We help your newborn learn the difference between day and night: age-appropriate wake windows, calming bedtime rhythms and a safe-sleep set-up, coached with you and followed up until better nights actually stick.",
+    includes: [
+      "In-depth sleep assessment and gentle plan",
+      "Day–night rhythm and wake-window coaching",
+      "Safe-sleep set-up review of your nursery",
+      "Follow-up check-ins and adjustments",
+    ],
+    priceNote: "Consultation + follow-up packages",
+    image: "/images/sleep-conditioning.jpg",
+    imageAlt: "A newborn sleeping peacefully in a bassinet beneath a mobile",
   },
   {
     slug: "feeding-support",
@@ -119,47 +184,53 @@ export const services: Service[] = [
       "Simple routines you can keep and reuse",
     ],
     priceNote: "Woven into every visit · standalone sessions available",
+    image: "/images/feeding-support.jpg",
+    imageAlt: "A caregiver coaching a mother while she bottle-feeds her baby at home",
   },
   {
-    slug: "sleep-guidance",
-    icon: "zzz",
-    title: "Sleep Guidance",
+    slug: "parent-education",
+    icon: "book",
+    title: "Parent Education",
     summary:
-      "Gentle, age-appropriate sleep shaping — coached with you, at your baby's pace.",
+      "Hands-on coaching that turns nervous first-timers into confident parents.",
     description:
-      "A one-on-one consultation to understand your baby and your goals, followed by a gentle, realistic sleep plan with follow-up check-ins — so better nights actually stick.",
+      "Practical, personalised teaching in your own home: bathing, swaddling, soothing, safe sleep, feeding basics and what to really expect in the early weeks — so you feel prepared, not overwhelmed.",
     includes: [
-      "In-depth sleep consultation and assessment",
-      "A personalised, gentle sleep plan",
-      "Safe-sleep set-up review of your nursery",
-      "Follow-up check-ins and adjustments",
+      "Newborn basics: bathing, swaddling, soothing",
+      "Safe-sleep and feeding fundamentals",
+      "Sessions tailored to parents and grandparents",
+      "Take-home checklists and trusted resources",
     ],
-    priceNote: "Consultation + follow-up packages",
+    priceNote: "Per session · included in longer care packages",
+    image: "/images/parent-education.jpg",
+    imageAlt: "Two parents at home cradling their baby together",
   },
   {
-    slug: "postpartum-massage",
-    icon: "spa",
-    title: "Postpartum Massage",
+    slug: "newborn-routine-development",
+    icon: "clock",
+    title: "Newborn Routine Development",
     summary:
-      "Restorative in-home massage to ease recovery, tension and tired new-parent shoulders.",
+      "Calm, flexible daily rhythms for feeds, naps and play that grow with your baby.",
     description:
-      "Gentle, postpartum-safe massage in the comfort of your home — supporting circulation, easing aches from feeding and carrying, and giving your body the care it's giving everyone else.",
+      "We observe your baby's natural patterns and shape them into a gentle, realistic routine — feeds, naps, wake windows and evenings — bringing predictability to your days without rigidity.",
     includes: [
-      "In-home sessions around your baby's rhythm",
-      "Postpartum-safe, recovery-focused techniques",
-      "Relief for back, neck and feeding tension",
-      "Lovely as a gift for a new mother",
+      "Personalised feed and nap rhythm",
+      "Age-appropriate wake windows and play",
+      "Adjustments as your baby grows",
+      "A simple written schedule the whole family can follow",
     ],
-    priceNote: "Per session · add-on to any care package",
+    priceNote: "Woven into ongoing care · standalone consultations",
+    image: "/images/routine-development.jpg",
+    imageAlt: "A mother settling her sleeping newborn beside the crib",
   },
   {
     slug: "emotional-support",
     icon: "chat-heart",
-    title: "Emotional Support for Parents",
+    title: "Emotional Support for New Parents",
     summary:
       "A steady, caring presence for you — because the fourth trimester is tender for parents too.",
     description:
-      "Doula-style emotional care: a listening ear without judgement, reassurance grounded in experience, and gentle signposting to specialist resources when they'd help. You don't have to hold it all alone.",
+      "A listening ear without judgement, reassurance grounded in experience, and gentle signposting to specialist resources when they'd help. You don't have to hold it all alone.",
     includes: [
       "Judgement-free listening and reassurance",
       "Evidence-based guidance for the fourth trimester",
@@ -167,6 +238,8 @@ export const services: Service[] = [
       "Woven through every service we offer",
     ],
     priceNote: "Included in our care · dedicated visits available",
+    image: "/images/emotional-support.jpg",
+    imageAlt: "A new mother smiling with her baby, supported by a caregiver",
   },
 ];
 

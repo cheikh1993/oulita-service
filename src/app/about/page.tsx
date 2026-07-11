@@ -40,7 +40,7 @@ export default function AboutPage() {
       <section className="container py-16 sm:py-20">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
           <Reveal>
-            <div className="lg:sticky lg:top-28">
+            <div className="group lg:sticky lg:top-28">
               {site.images.founder ? (
                 <PhotoSlot
                   src={site.images.founder}
@@ -113,6 +113,23 @@ export default function AboutPage() {
             </div>
           </Reveal>
         </div>
+      </section>
+
+      {/* Motto */}
+      <section className="container py-8">
+        <Reveal>
+          <figure className="mx-auto max-w-3xl text-center">
+            <span className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-plum-soft text-plum animate-pulse-soft motion-reduce:animate-none">
+              <Icon name="quote" className="h-6 w-6" />
+            </span>
+            <blockquote className="mt-5 font-display text-2xl font-semibold italic leading-snug text-ink sm:text-3xl">
+              &ldquo;{site.motto}&rdquo;
+            </blockquote>
+            <figcaption className="mt-5 text-xs font-bold uppercase tracking-[0.2em] text-gold-deep">
+              Our motto — {site.name}
+            </figcaption>
+          </figure>
+        </Reveal>
       </section>
 
       {/* Values */}

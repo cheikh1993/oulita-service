@@ -66,10 +66,21 @@ const config: Config = {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },
         },
+        "pulse-soft": {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.08)" },
+        },
+        "zoom-in": {
+          "0%": { opacity: "0", transform: "scale(0.96)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both",
         float: "float 6s ease-in-out infinite",
+        "float-slow": "float 11s ease-in-out infinite",
+        "pulse-soft": "pulse-soft 5s ease-in-out infinite",
+        "zoom-in": "zoom-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both",
       },
     },
   },

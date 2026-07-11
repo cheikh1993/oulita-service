@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
+import { PhotoSlot } from "@/components/PhotoSlot";
 import { Button } from "@/components/Button";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -16,7 +17,7 @@ import {
 export const metadata = pageMetadata({
   title: "Services",
   description:
-    "Overnight newborn care, feeding support, sleep guidance, postpartum massage and emotional support for parents — luxury care across Maryland, DC & Virginia.",
+    "Overnight & daytime newborn care, postpartum doula support, sleep conditioning, feeding support, parent education and more — luxury care across Maryland, DC & Virginia.",
   path: "/services",
 });
 
@@ -69,6 +70,14 @@ export default function ServicesPage() {
                     i % 2 === 1 ? "lg:order-1" : ""
                   }`}
                 >
+                  {service.image && (
+                    <PhotoSlot
+                      src={service.image}
+                      alt={service.imageAlt ?? service.title}
+                      className="mb-7 aspect-[16/9] w-full rounded-3xl"
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                    />
+                  )}
                   <h3 className="text-xs font-bold uppercase tracking-[0.16em] text-plum-deep">
                     What&apos;s included
                   </h3>

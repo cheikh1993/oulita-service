@@ -63,7 +63,7 @@ export default function HomePage() {
             </ul>
           </div>
 
-          <div className="relative animate-fade-up" style={{ animationDelay: "200ms" }}>
+          <div className="group relative animate-fade-up" style={{ animationDelay: "200ms" }}>
             {site.images.hero ? (
               <PhotoSlot
                 src={site.images.hero}
@@ -133,9 +133,36 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Our motto ────────────────────────────────────────── */}
+      <section className="container py-8">
+        <Reveal>
+          <figure className="relative overflow-hidden rounded-4xl bg-plum px-8 py-14 text-center shadow-lift sm:px-16">
+            <div
+              className="pointer-events-none absolute -left-16 -top-16 h-56 w-56 rounded-full bg-plum-deep/50 md:animate-float-slow motion-reduce:animate-none"
+              aria-hidden="true"
+            />
+            <div
+              className="pointer-events-none absolute -bottom-20 -right-14 h-64 w-64 rounded-full bg-plum-deep/40 md:animate-float motion-reduce:animate-none"
+              aria-hidden="true"
+            />
+            <div className="relative">
+              <span className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-gold animate-pulse-soft motion-reduce:animate-none">
+                <Icon name="quote" className="h-6 w-6" />
+              </span>
+              <blockquote className="mx-auto mt-6 max-w-3xl font-display text-2xl font-semibold italic leading-snug text-white sm:text-3xl">
+                &ldquo;{site.motto}&rdquo;
+              </blockquote>
+              <figcaption className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-gold">
+                {site.name} · {site.tagline}
+              </figcaption>
+            </div>
+          </figure>
+        </Reveal>
+      </section>
+
       {/* ── Founder / About teaser ───────────────────────────── */}
       <section className="container py-8">
-        <div className="surface-card overflow-hidden lg:grid lg:grid-cols-2">
+        <div className="group surface-card overflow-hidden lg:grid lg:grid-cols-2">
           <div className="relative min-h-[320px]">
             {site.images.founder ? (
               <PhotoSlot

@@ -3,6 +3,7 @@ import { Fraunces, Nunito } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SocialFloat } from "@/components/SocialFloat";
 import { JsonLd } from "@/components/JsonLd";
 import { site } from "@/lib/site";
 import { getBaseUrl, localBusinessSchema, websiteSchema } from "@/lib/seo";
@@ -42,9 +43,11 @@ export const metadata: Metadata = {
     "newborn care specialist",
     "night nanny",
     "night nurse",
-    "postpartum massage",
-    "baby sleep guidance",
+    "postpartum doula",
+    "daytime newborn care",
+    "newborn sleep conditioning",
     "feeding support",
+    "parent education",
     "newborn care Maryland",
     "newborn care Washington DC",
     "postpartum care Virginia",
@@ -108,6 +111,7 @@ export default function RootLayout({
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <SocialFloat />
       </body>
     </html>
   );
